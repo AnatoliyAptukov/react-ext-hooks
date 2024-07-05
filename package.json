@@ -1,0 +1,34 @@
+{
+  "name": "react-ext-hooks",
+  "version": "1.0.0",
+  "description": "It is a library of React hooks that extends its capabilities",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnatoliyAptukov/react-ext-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "rerender",
+    "global",
+    "state",
+    "local",
+    "storage",
+    "session",
+    "storage",
+    "ext",
+    "hooks"
+  ],
+  "author": "Anatoliy Aptukov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnatoliyAptukov/react-ext-hooks/issues"
+  },
+  "homepage": "https://github.com/AnatoliyAptukov/react-ext-hooks#readme",
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  }
+}
