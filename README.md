@@ -2,7 +2,9 @@
 
 It is a library of React hooks that extends its capabilities.
 
-![react ext hooks set](https://aptukov.com/third_party_assets/react-ext-hooks/logo.png) **React ext hooks**.
+![react ext hooks set](https://aptukov.com/third_party_assets/react-ext-hooks/logo.png) 
+
+## Content:
 
 [Install](#install)
 
@@ -21,6 +23,7 @@ It is a library of React hooks that extends its capabilities.
 ***Other:***
 
 [ Examples in CodeSandbox ](#other)
+
 
 
 ## Install
