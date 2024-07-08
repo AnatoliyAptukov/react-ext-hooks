@@ -1,9 +1,16 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.0.0",
+  "version": "1.11.0",
+  "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index",
+  "typings": "dist/index",
+  "scripts": {
+    "prepublishOnly": "npm run compile",
+    "compile": "npm run clean && tsc -p .",
+    "watch": "tsc -w -p .",
+    "clean": "rm -rf dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnatoliyAptukov/react-ext-hooks.git"
@@ -30,5 +37,15 @@
   "peerDependencies": {
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "typescript": "^5.5.3"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/hooks"
+  ]
 }

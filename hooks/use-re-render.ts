@@ -2,10 +2,7 @@ import { useState } from "react";
 function useReRender() {
   const [state, setState] = useState(0);
   return () => {
-    setState((count) => {
-      count + 1;
-    });
+    setState((count: number)=> count + 1);
   };
 };
-
-module.export = useReRender;
+export default useReRender;
