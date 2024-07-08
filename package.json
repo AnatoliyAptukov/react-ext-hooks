@@ -1,6 +1,6 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
   "main": "dist/index",
