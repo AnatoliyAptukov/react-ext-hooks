@@ -1,9 +1,9 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
-  "main": "dist/index",
+  "main": "dist/index.js",
   "typings": "dist/index.js",
   "scripts": {
     "prepublishOnly": "npm run compile",
