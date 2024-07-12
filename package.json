@@ -1,6 +1,6 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.15.0",
+  "version": "1.20.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
     "hooks"
   ],
   "author": "Anatoliy Aptukov",
-  "license": "ISC",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/AnatoliyAptukov/react-ext-hooks/issues"
   },
