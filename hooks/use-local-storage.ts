@@ -9,6 +9,6 @@ function useLocalStorage<T>(
     defaultValue?: T,
     options?: Options<T>
   ) {
- return useStorage(StorageName.localStorage, key, defaultValue, options);
+ return useStorage(StorageName.localStorage, key, defaultValue, options );
 };
 export default useLocalStorage;
