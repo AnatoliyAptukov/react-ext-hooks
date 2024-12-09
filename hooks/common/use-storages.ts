@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import isEqualArraysIgnoreOrder from "compare-arrays-ignoring-order";
 
 enum StorageName { localStorage, sessionStorage };
 
+type Comparer<T> = (objectA: T | undefined, objectB: T | undefined) => boolean;
 type Serializer<T> = (object: T | undefined) => string;
 type Parser<T> = (val: string) => T | undefined;
 type Setter<T> = React.Dispatch<React.SetStateAction<T | undefined>>;
 
 type Options<T> = Partial<{
+  comparer:Comparer<T>;
   serializer: Serializer<T>;
   parser: Parser<T>;
   logger: (error: any) => void;
@@ -27,6 +30,7 @@ function useStorage<T>(
 ) {
   const getDefaultOptions = useMemo(() => {
     return {
+      comparer: isEqualArraysIgnoreOrder,
       serializer: JSON.stringify,
       parser: JSON.parse,
       logger: console.log,
@@ -39,7 +43,7 @@ function useStorage<T>(
     return (storage === StorageName.localStorage ? window.localStorage : window.sessionStorage);
   }
 
-  const { serializer, parser, logger, syncData } = getDefaultOptions;
+  const { comparer, serializer, parser, logger, syncData } = getDefaultOptions;
 
   const rawValueRef = useRef<string | null>(null);
 
@@ -102,7 +106,7 @@ function useStorage<T>(
       if (e.key !== key || e.storageArea !== getStorage()) return;
 
       try {
-        if (e.newValue !== rawValueRef.current) {
+        if (!comparer(e.newValue, rawValueRef.current)) {
           rawValueRef.current = e.newValue;
           setValue(e.newValue ? parser(e.newValue) : undefined);
         }
@@ -121,4 +125,4 @@ function useStorage<T>(
 }
 
 export default useStorage;
-export {Options, Setter, StorageName};
+export { Options, Setter, StorageName };

@@ -1,14 +1,14 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
   "main": "dist/index.js",
   "typings": "dist/index.js",
   "scripts": {
     "prepublishOnly": "npm run compile",
-    "compile": "npm run clean && tsc -p .",
-    "watch": "tsc -w -p .",
+    "compile": "npm run clean && ./node_modules/typescript/bin/tsc -p .",
+    "watch": "./node_modules/typescript/bin/tsc -w -p .",
     "clean": "rm -rf dist"
   },
   "repository": {
@@ -47,5 +47,8 @@
     "dist/index.js",
     "dist/index.d.ts",
     "dist/hooks"
-  ]
+  ],
+  "dependencies": {
+    "compare-arrays-ignoring-order": "^1.11.0"
+  }
 }
