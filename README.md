@@ -20,6 +20,8 @@ It is a library of React hooks that extends its capabilities.
 
 [ useReRender() 🪝](#usererender)
 
+[ useRsizeObserver() 🪝](#useresizeobserver)
+
 ***Other:***
 
 [ Examples in CodeSandbox ](#other)
@@ -245,6 +247,68 @@ export function ReRenderTestPanel() {
 <ReRenderTestPanel />
 ```
 #### Features ✅
+
+✓ Support SSR
+
+✓ Written with TypeScript
+
+## useResizeObserver 
+
+#### 🪝🪝🪝 Description 💁
+
+**useResizeObserver** this is a simple hook that allows to observe for resizes of a ref  containing an HTML element.
+
+#### API 🚩
+To watch the entire page use:
+**useResizeObserver<T>(watchEntirePage: true)**
+
+or to watch an component use overload function:
+**useResizeObserver<T>(elementRef: React.MutableRefObject, parentLevel?:number)**
+
+Returns object **{width?: number, height?: number}** when called. 
+Property **width** of return object contain width of element or page in pixels. Property **height** of return object contain height of element or page in pixels;
+
+**watchEntirePage: true**
+Pass this argument with true value to watch the entire page.
+
+**elementRef: React.MutableRefObject**
+Reference to an element defined using a react hook useRef.
+
+**parentLevel?:number**
+Optional argument, is needed to watch the parent HTML element. The parent level is specified by a number passed in this argument/
+
+#### Example ✏
+
+The most basic use of a hook involves calling the hook function with one parameter - the name of the local storage key. However, it is recommended to use it with a second parameter - the default value:
+
+```typescript
+//resize-counter.js file:
+import {useResizeObserver} from  "react-ext-hooks";
+
+function ResizeCounter() {
+  const resizeCount = useRef(0);
+  const { width, height } = useResizeObserver({
+    watchEntirePage: true,
+  });
+  useEffect(
+    function onReRender() {
+      resizeCount.current++;
+    },
+    [width, height]
+  );
+  return (
+    <div>
+        <div>Current resize count: {resizeCount.current}</div>
+        <div>Current width: {width}</div>
+        <div>Current height: {height}</div>
+    </div>
+  );
+}
+//add to usage file:
+<ResizeCounter />
+```
+#### Features ✅
+✓ Polyfill is used 
 
 ✓ Support SSR
 

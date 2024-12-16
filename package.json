@@ -1,6 +1,6 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.22.0",
+  "version": "1.25.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
   "main": "dist/index.js",
@@ -49,6 +49,7 @@
     "dist/hooks"
   ],
   "dependencies": {
+    "@juggle/resize-observer": "^3.4.0",
     "compare-arrays-ignoring-order": "^1.11.0"
   }
 }
