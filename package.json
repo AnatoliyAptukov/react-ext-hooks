@@ -1,13 +1,16 @@
 {
   "name": "react-ext-hooks",
-  "version": "1.25.0",
+  "version": "1.28.0",
   "type": "module",
   "description": "It is a library of React hooks that extends its capabilities",
-  "main": "dist/index.js",
-  "typings": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.js",
   "scripts": {
-    "prepublishOnly": "npm run compile",
-    "compile": "npm run clean && ./node_modules/typescript/bin/tsc -p .",
+    "prepublishOnly": "npm run build",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "./node_modules/typescript/bin/tsc -p .",
+    "build:cjs": "babel dist/esm --out-dir dist/cjs",
     "watch": "./node_modules/typescript/bin/tsc -w -p .",
     "clean": "rm -rf dist"
   },
@@ -41,14 +44,24 @@
     "react-dom": ">= 16.8.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-jason": "^6.2.0",
     "typescript": "^5.5.3"
   },
   "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/hooks"
+    "dist/cjs/index.js",
+    "dist/cjs/index.d.ts",
+    "dist/cjs/hooks",
+    "dist/esm/index.js",
+    "dist/esm/index.d.ts",
+    "dist/esm/hooks"
   ],
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
